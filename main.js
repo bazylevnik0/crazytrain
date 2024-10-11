@@ -30,11 +30,9 @@ const geometry = new LineGeometry();
 
 let material = new LineMaterial( {
 	color: 0xffffff,
-	linewidth: 50, // in world units with size attenuation, pixels otherwise
+	linewidth: 50, 
 	vertexColors: true,
-
 	dashed: false,
-	alphaToCoverage: true,
 } );
 
 let line = new Line2( geometry, material );
