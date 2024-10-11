@@ -61,36 +61,38 @@ let next_camera_position;
 
 var clock = new THREE.Clock();
 function animate() {
-	if(iter%10==0) {
-		// Add first segment
-		p1 = p2.clone();
-		let new_p2 = direction.clone();
-		p2 = new_p2.add(p1);
-		add_segment(p1,p2);
-		next_camera_position = p2.clone();
-		// Add second segment
-		p1 = p2.clone();
-		new_p2 = direction.clone();
-		p2 = new_p2.add(p1);
-		add_segment(p1,p2);
-		// Add third segment
-		direction = new THREE.Vector3();
-		renderer.xr.getCamera().getWorldDirection(direction)
-	
-		p1 = p2.clone();
-		new_p2 = direction.clone();
-		p2 = new_p2.add(p1);
-		add_segment(p1,p2);
-	}
+	if (renderer.xr.isPresenting) {
+		if(iter%10==0) {
+			// Add first segment
+			p1 = p2.clone();
+			let new_p2 = direction.clone();
+			p2 = new_p2.add(p1);
+			add_segment(p1,p2);
+			next_camera_position = p2.clone();
+			// Add second segment
+			p1 = p2.clone();
+			new_p2 = direction.clone();
+			p2 = new_p2.add(p1);
+			add_segment(p1,p2);
+			// Add third segment
+			direction = new THREE.Vector3();
+			renderer.xr.getCamera().getWorldDirection(direction)
+		
+			p1 = p2.clone();
+			new_p2 = direction.clone();
+			p2 = new_p2.add(p1);
+			add_segment(p1,p2);
+		}
 
-	//let direction_delta = direction.clone();
-	//	direction_delta.multiplyScalar(0.1*3);
-	let delta = clock.getDelta();
-	
-	let camera_position = camera_group.position.clone();
-		camera_position.multiplyScalar(-1);
-	let camera_delta = next_camera_position.add(camera_position)
-		camera_delta.multiplyScalar(delta*10);
-	camera_group.position.add(camera_delta);
-	renderer.render( scene, camera ); iter++; 
+		//let direction_delta = direction.clone();
+		//	direction_delta.multiplyScalar(0.1*3);
+		let delta = clock.getDelta();
+		
+		let camera_position = camera_group.position.clone();
+			camera_position.multiplyScalar(-1);
+		let camera_delta = next_camera_position.add(camera_position)
+			camera_delta.multiplyScalar(delta*10*3);
+		camera_group.position.add(camera_delta);
+	} 
+	renderer.render( scene, camera ); iter++;
 }
