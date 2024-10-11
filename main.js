@@ -71,6 +71,9 @@ function animate() {
 		p2 = new_p2.add(p1);
 		add_segment(p1,p2);
 		// Add third segment
+		direction = new THREE.Vector3();
+		renderer.xr.getCamera().getWorldDirection(direction)
+	
 		p1 = p2.clone();
 		new_p2 = direction.clone();
 		p2 = new_p2.add(p1);
