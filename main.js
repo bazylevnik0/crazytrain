@@ -50,21 +50,24 @@ function add_segment (p1,p2) {
 	segments.push(segment);
 }
 
-var delta = 0; 
+var iter = 0; 
 var p1_start = new THREE.Vector3(0,0,-1);
 var p2_start = new THREE.Vector3(0,0,-3);
 add_segment(p1_start, p2_start);
 let direction = new THREE.Vector3(0,0,-2)
 var p1 = p2_start.clone();
 var p2 = p1.clone();
+let next_camera_position;
 
+var clock = new THREE.Clock();
 function animate() {
-	if(delta%10==0) {
+	if(iter%10==0) {
 		// Add first segment
 		p1 = p2.clone();
 		let new_p2 = direction.clone();
 		p2 = new_p2.add(p1);
 		add_segment(p1,p2);
+		next_camera_position = p2.clone();
 		// Add second segment
 		p1 = p2.clone();
 		new_p2 = direction.clone();
@@ -79,8 +82,15 @@ function animate() {
 		p2 = new_p2.add(p1);
 		add_segment(p1,p2);
 	}
-	let direction_delta = direction.clone();
-		direction_delta.multiplyScalar(0.1*3);
-	camera_group.position.add(direction_delta);
-	renderer.render( scene, camera ); delta++; 
+
+	//let direction_delta = direction.clone();
+	//	direction_delta.multiplyScalar(0.1*3);
+	let delta = clock.getDelta();
+	
+	let camera_position = camera_group.position.clone();
+		camera_position.multiplyScalar(-1);
+	let camera_delta = next_camera_position.add(camera_position)
+		camera_delta.multiplyScalar(delta);
+	camera_group.position.add(camera_delta);
+	renderer.render( scene, camera ); iter++; 
 }
