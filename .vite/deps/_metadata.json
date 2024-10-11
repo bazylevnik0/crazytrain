@@ -2,45 +2,60 @@
   "hash": "383aa9b0",
   "configHash": "fed6a91e",
   "lockfileHash": "e3b0c442",
-  "browserHash": "fadafdc9",
+  "browserHash": "5c366bfd",
   "optimized": {
     "three": {
       "src": "../../../../node_modules/three/build/three.module.js",
       "file": "three.js",
-      "fileHash": "6f86fdf4",
+      "fileHash": "47380841",
       "needsInterop": false
     },
     "three/addons/lines/LineMaterial.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/LineMaterial.js",
       "file": "three_addons_lines_LineMaterial__js.js",
-      "fileHash": "75d99dd2",
+      "fileHash": "6fd019b7",
       "needsInterop": false
     },
     "three/addons/lines/LineGeometry.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/LineGeometry.js",
       "file": "three_addons_lines_LineGeometry__js.js",
-      "fileHash": "3bfa829b",
+      "fileHash": "d38fcebd",
       "needsInterop": false
     },
     "three/addons/lines/Line2.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/Line2.js",
       "file": "three_addons_lines_Line2__js.js",
-      "fileHash": "90dafe60",
+      "fileHash": "cf67086a",
       "needsInterop": false
     },
     "three/addons/lines/LineSegmentsGeometry.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/LineSegmentsGeometry.js",
       "file": "three_addons_lines_LineSegmentsGeometry__js.js",
-      "fileHash": "cc91217a",
+      "fileHash": "04d77758",
+      "needsInterop": false
+    },
+    "three/addons/lines/LineSegments2.js": {
+      "src": "../../../../node_modules/three/examples/jsm/lines/LineSegments2.js",
+      "file": "three_addons_lines_LineSegments2__js.js",
+      "fileHash": "4d71c805",
+      "needsInterop": false
+    },
+    "three/examples/jsm/lines/LineSegmentsGeometry.js": {
+      "src": "../../../../node_modules/three/examples/jsm/lines/LineSegmentsGeometry.js",
+      "file": "three_examples_jsm_lines_LineSegmentsGeometry__js.js",
+      "fileHash": "306f0afc",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-PPSDZFIN": {
-      "file": "chunk-PPSDZFIN.js"
-    },
     "chunk-3WGNRCZA": {
       "file": "chunk-3WGNRCZA.js"
+    },
+    "chunk-4TED273O": {
+      "file": "chunk-4TED273O.js"
+    },
+    "chunk-PPSDZFIN": {
+      "file": "chunk-PPSDZFIN.js"
     },
     "chunk-ENBEF2CT": {
       "file": "chunk-ENBEF2CT.js"
