@@ -90,7 +90,7 @@ function animate() {
 	let camera_position = camera_group.position.clone();
 		camera_position.multiplyScalar(-1);
 	let camera_delta = next_camera_position.add(camera_position)
-		camera_delta.multiplyScalar(delta);
+		camera_delta.multiplyScalar(delta*10);
 	camera_group.position.add(camera_delta);
 	renderer.render( scene, camera ); iter++; 
 }
