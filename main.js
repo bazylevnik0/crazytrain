@@ -1,7 +1,4 @@
 import * as THREE from 'three';
-import { Line2 } from 'three/addons/lines/Line2.js';
-import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
-import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -11,37 +8,44 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setAnimationLoop( animate );
 document.body.appendChild( renderer.domElement );
 
-const points = [];
-points.push( new THREE.Vector3( 0, 0, 0 ) );
-points.push( new THREE.Vector3( 1, 1, 0 ) );
+function add_segment (p1,p2) {
+	let points = [];
+	// Far reactangle
+	points.push( new THREE.Vector3( -2+p2.x,  1+p2.y, 0+p2.z ) ); // l u
+	points.push( new THREE.Vector3(  2+p2.x,  1+p2.y, 0+p2.z ) ); // r u
+	points.push( new THREE.Vector3(  2+p2.x, -1+p2.y, 0+p2.z ) ); // r d
+	points.push( new THREE.Vector3( -2+p2.x, -1+p2.y, 0+p2.z ) ); // l d
+	points.push( new THREE.Vector3( -2+p2.x,  1+p2.y, 0+p2.z ) );
+	// Second part ( nearest rectangle and connection with first)
+	points.push( new THREE.Vector3( -2+p1.x,  1+p1.y, 0+p1.z ) ); // l u
+	points.push( new THREE.Vector3(  2+p1.x,  1+p1.y, 0+p1.z ) ); // r u
+	points.push( new THREE.Vector3(  2+p2.x,  1+p2.y, 0+p2.z ) );
+	points.push( new THREE.Vector3(  2+p1.x,  1+p1.y, 0+p1.z ) );
+	points.push( new THREE.Vector3(  2+p1.x, -1+p1.y, 0+p1.z ) ); // r d
+	points.push( new THREE.Vector3(  2+p2.x, -1+p2.y, 0+p2.z ) );
+	points.push( new THREE.Vector3(  2+p1.x, -1+p1.y, 0+p1.z ) );
+	points.push( new THREE.Vector3( -2+p1.x, -1+p1.y, 0+p1.z ) ); // l d
+	points.push( new THREE.Vector3( -2+p2.x, -1+p2.y, 0+p2.z ) );
+	points.push( new THREE.Vector3( -2+p1.x, -1+p1.y, 0+p1.z ) );
+	points.push( new THREE.Vector3( -2+p1.x,  1+p1.y, 0+p1.z ) );
 
-let positions = [];
-let colors    = [];
-for (let i = 0; i < points.length; i++) {
-	let point = points[i];
-	positions.push(point.x, point.y, point.z);
-	let color = new THREE.Color( 1, 0, 0 );
-	colors.push(color.r, color.g, color.b);
+	let geometry = new THREE.BufferGeometry().setFromPoints( points );
+
+	var segment = new THREE.Line(geometry, new THREE.LineBasicMaterial({
+		color: 0x0000ff,
+		linewidth: 1,
+	}));
+	segment.computeLineDistances();
+
+	scene.add( segment );
 }
+add_segment(new THREE.Vector3(0,0,-1),new THREE.Vector3(0,0,-3));
 
-const geometry = new LineGeometry();
-    geometry.setPositions( positions );
-	geometry.setColors( colors );
 
-let material = new LineMaterial( {
-	color: 0xffffff,
-	linewidth: 50, 
-	vertexColors: true,
-	dashed: false,
-} );
-
-let line = new Line2( geometry, material );
-	line.computeLineDistances();
-	line.scale.set( 1, 1, 1 );
-	scene.add( line );
-
-camera.position.z = 5;
+camera.position.z = 1;
 
 function animate() {
+
 	renderer.render( scene, camera );
+
 }
