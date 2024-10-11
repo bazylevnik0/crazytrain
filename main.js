@@ -56,12 +56,25 @@ var p1 = p2_start.clone();
 var p2 = p1.clone();
 
 function animate() {
-	p1 = p2.clone();
-	let new_p2 = direction.clone();
-	p2 = new_p2.add(p1);
-	add_segment(p1,p2);
+	if(delta%10==0) {
+		// Add first segment
+		p1 = p2.clone();
+		let new_p2 = direction.clone();
+		p2 = new_p2.add(p1);
+		add_segment(p1,p2);
+		// Add second segment
+		p1 = p2.clone();
+		new_p2 = direction.clone();
+		p2 = new_p2.add(p1);
+		add_segment(p1,p2);
+		// Add third segment
+		p1 = p2.clone();
+		new_p2 = direction.clone();
+		p2 = new_p2.add(p1);
+		add_segment(p1,p2);
+	}
 	let direction_delta = direction.clone();
-		direction_delta.multiplyScalar(0.9);
+		direction_delta.multiplyScalar(0.1*3);
 	camera_group.position.add(direction_delta);
 	renderer.render( scene, camera ); delta++; 
 }
