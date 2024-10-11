@@ -2,48 +2,54 @@
   "hash": "383aa9b0",
   "configHash": "fed6a91e",
   "lockfileHash": "e3b0c442",
-  "browserHash": "5c366bfd",
+  "browserHash": "221eb3bf",
   "optimized": {
     "three": {
       "src": "../../../../node_modules/three/build/three.module.js",
       "file": "three.js",
-      "fileHash": "47380841",
+      "fileHash": "3d2669a5",
       "needsInterop": false
     },
     "three/addons/lines/LineMaterial.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/LineMaterial.js",
       "file": "three_addons_lines_LineMaterial__js.js",
-      "fileHash": "6fd019b7",
+      "fileHash": "ff0ee706",
       "needsInterop": false
     },
     "three/addons/lines/LineGeometry.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/LineGeometry.js",
       "file": "three_addons_lines_LineGeometry__js.js",
-      "fileHash": "d38fcebd",
+      "fileHash": "20ef31e5",
       "needsInterop": false
     },
     "three/addons/lines/Line2.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/Line2.js",
       "file": "three_addons_lines_Line2__js.js",
-      "fileHash": "cf67086a",
+      "fileHash": "594c3071",
       "needsInterop": false
     },
     "three/addons/lines/LineSegmentsGeometry.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/LineSegmentsGeometry.js",
       "file": "three_addons_lines_LineSegmentsGeometry__js.js",
-      "fileHash": "04d77758",
+      "fileHash": "29f04af4",
       "needsInterop": false
     },
     "three/addons/lines/LineSegments2.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/LineSegments2.js",
       "file": "three_addons_lines_LineSegments2__js.js",
-      "fileHash": "4d71c805",
+      "fileHash": "b2582534",
       "needsInterop": false
     },
     "three/examples/jsm/lines/LineSegmentsGeometry.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/LineSegmentsGeometry.js",
       "file": "three_examples_jsm_lines_LineSegmentsGeometry__js.js",
-      "fileHash": "306f0afc",
+      "fileHash": "51304382",
+      "needsInterop": false
+    },
+    "three/addons/webxr/VRButton.js": {
+      "src": "../../../../node_modules/three/examples/jsm/webxr/VRButton.js",
+      "file": "three_addons_webxr_VRButton__js.js",
+      "fileHash": "2ae17028",
       "needsInterop": false
     }
   },
