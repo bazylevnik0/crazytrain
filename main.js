@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 
-console.log(25)
+console.log(26)
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -20,7 +20,6 @@ document.body.appendChild( renderer.domElement );
 document.body.appendChild( VRButton.createButton( renderer ) );
 
 function add_segment (p1,p2,direction) {
-	const geometry = new THREE.BoxGeometry( 1, 1, 1 ); 
 	const geometry = new THREE.BoxGeometry( 1, 1, 1 ); 
 	const material = new THREE.MeshBasicMaterial( {color: 0x0000ff} );
 		  material.wireframe = true;
