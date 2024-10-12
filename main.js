@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 
-console.log(23)
+console.log(24)
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -87,7 +87,7 @@ function animate() {
 			p1 = p2.clone();
 			new_p2 = direction.clone();
 			p2 = new_p2.add(p1);
-			add_segment(p1,p2,local_direction.clone());
+			add_segment(p1,p2);
 		}
 		
 		let length = p0.distanceTo(camera_group.position);
