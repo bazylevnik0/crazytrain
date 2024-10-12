@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 
-console.log(12)
+console.log(13)
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -20,7 +20,7 @@ document.body.appendChild( renderer.domElement );
 document.body.appendChild( VRButton.createButton( renderer ) );
 
 var segments = [];
-function add_segment (p1,p2) {
+function add_segment (p1,p2,direction) {
 	let points = [];
 	// Far rectangle
 	points.push( new THREE.Vector3( -2+p2.x,  1+p2.y, 0+p2.z ) ); // l u
@@ -47,7 +47,10 @@ function add_segment (p1,p2) {
 		linewidth: 1,
 	}));
 	segment.computeLineDistances();
-
+	geometry.rotation.x = direction.x;
+	geometry.rotation.y = direction.y;
+	geometry.rotation.z = direction.z;
+	
 	scene.add( segment );
 	segments.push(segment);
 }
@@ -81,7 +84,7 @@ function animate() {
 			p1 = p2.clone();
 			new_p2 = direction.clone();
 			p2 = new_p2.add(p1);
-			add_segment(p1,p2);
+			add_segment(p1,p2,direction.clone());
 		}
 		
 		let length = p0.distanceTo(camera_group.position);
