@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 
-console.log(17)
+console.log(18)
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -43,9 +43,7 @@ function add_segment (p1,p2,direction) {
 
 	let geometry = new THREE.BufferGeometry().setFromPoints( points );
 	if (direction) {
-		geometry.rotateX(direction.x);
-		geometry.rotateY(direction.y);
-		geometry.rotatez(direction.z);
+		geometry.lookAt(direction);
 	}
 	var segment = new THREE.Line(geometry, new THREE.LineBasicMaterial({
 		color: 0x0000ff,
