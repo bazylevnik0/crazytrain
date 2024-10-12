@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 
-console.log(24)
+console.log(25)
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -19,41 +19,13 @@ renderer.setAnimationLoop( animate );
 document.body.appendChild( renderer.domElement );
 document.body.appendChild( VRButton.createButton( renderer ) );
 
-var segments = [];
 function add_segment (p1,p2,direction) {
-	let points = [];
-	// Far rectangle
-	points.push( new THREE.Vector3( -2+p2.x,  1+p2.y, 0+p2.z ) ); // l u
-	points.push( new THREE.Vector3(  2+p2.x,  1+p2.y, 0+p2.z ) ); // r u
-	points.push( new THREE.Vector3(  2+p2.x, -1+p2.y, 0+p2.z ) ); // r d
-	points.push( new THREE.Vector3( -2+p2.x, -1+p2.y, 0+p2.z ) ); // l d
-	points.push( new THREE.Vector3( -2+p2.x,  1+p2.y, 0+p2.z ) );
-	// Second part ( nearest rectangle and connection with first)
-	points.push( new THREE.Vector3( -2+p1.x,  1+p1.y, 0+p1.z ) ); // l u
-	points.push( new THREE.Vector3(  2+p1.x,  1+p1.y, 0+p1.z ) ); // r u
-	points.push( new THREE.Vector3(  2+p2.x,  1+p2.y, 0+p2.z ) );
-	points.push( new THREE.Vector3(  2+p1.x,  1+p1.y, 0+p1.z ) );
-	points.push( new THREE.Vector3(  2+p1.x, -1+p1.y, 0+p1.z ) ); // r d
-	points.push( new THREE.Vector3(  2+p2.x, -1+p2.y, 0+p2.z ) );
-	points.push( new THREE.Vector3(  2+p1.x, -1+p1.y, 0+p1.z ) );
-	points.push( new THREE.Vector3( -2+p1.x, -1+p1.y, 0+p1.z ) ); // l d
-	points.push( new THREE.Vector3( -2+p2.x, -1+p2.y, 0+p2.z ) );
-	points.push( new THREE.Vector3( -2+p1.x, -1+p1.y, 0+p1.z ) );
-	points.push( new THREE.Vector3( -2+p1.x,  1+p1.y, 0+p1.z ) );
-
-	let geometry = new THREE.BufferGeometry().setFromPoints( points );
-	var segment = new THREE.Line(geometry, new THREE.LineBasicMaterial({
-		color: 0x0000ff,
-		linewidth: 1,
-	}));
-	segment.computeLineDistances();
-	if (direction) {
-		segment.geometry.rotateX(direction.x);
-		segment.geometry.rotateY(direction.y);
-		segment.geometry.rotateZ(direction.z);
-	}
-	scene.add( segment );
-	segments.push(segment);
+	const geometry = new THREE.BoxGeometry( 1, 1, 1 ); 
+	const geometry = new THREE.BoxGeometry( 1, 1, 1 ); 
+	const material = new THREE.MeshBasicMaterial( {color: 0x0000ff} );
+		  material.wireframe = true;
+	const cube = new THREE.Mesh( geometry, material ); 
+	scene.add( cube );
 }
 
 var iter = 0; 
@@ -87,7 +59,7 @@ function animate() {
 			p1 = p2.clone();
 			new_p2 = direction.clone();
 			p2 = new_p2.add(p1);
-			add_segment(p1,p2);
+			add_segment(p1,p2,local_direction);
 		}
 		
 		let length = p0.distanceTo(camera_group.position);
