@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
-console.log(60)
+console.log(61)
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -14,6 +14,7 @@ let camera_group = new THREE.Group();
 	camera_group.add( camera );
 	
 	const light = new THREE.AmbientLight( 0x404040 ); // soft white light
+		  light.intensity = 5; 	
 scene.add( light );
 	scene.add(camera_group);
 
@@ -40,7 +41,7 @@ function add_segment (position, rotation) {
 		  cube.position.z = position.z;
 		  cube.rotation.x = rotation.x;
 		  cube.rotation.y = rotation.y;
-		  cube.rotation.z = rotation.z+Math.PI/3;
+		  cube.rotation.z = rotation.z;
 		  //cube.geometry.lookAt( rotation);
 	scene.add( cube ); 
 }
@@ -72,7 +73,7 @@ function animate() {
 		delta  = length / 10;
 	} 
 	
-	let position_move = new THREE.Vector3( 0, 0, 0)
+	let position_move = new THREE.Vector3( 0, 0, 0);
 		position_move.subVectors( position_old, position_new ).normalize().negate();
 	let position_current = camera_group.position.clone();	
 		position_current.add( position_move.multiplyScalar( delta ) );
