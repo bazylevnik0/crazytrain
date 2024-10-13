@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 
-console.log(39)
+console.log(40)
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -37,16 +37,20 @@ let position_path = camera_group.position.clone();
 let position_new = position_path.clone();
 let i = 0; let length = position_path.distanceTo(position_new); let delta  = length/10;
 	
+let direction_rotation = new THREE.Vector3();
+let direction_position = new THREE.Vector3();
 function animate() {
 	if (renderer.xr.isPresenting) {
 	let position_old = camera_group.position.clone();
 	
 	if (i%10==0) {
-		let direction_rotation = new THREE.Vector3();
-			renderer.xr.getCamera().getWorldDirection(direction_rotation);
-		for (let j = 0; j < 10; j++) {
-			let direction_position = position_path.clone();	
-			direction_position.add ( direction_rotation.multiplyScalar( 0.1*j ) );
+		for (let j = 0; j < 3; j++) {
+			if (j == 2) {
+				direction_rotation = new THREE.Vector3();
+				renderer.xr.getCamera().getWorldDirection(direction_rotation);
+			} 
+			direction_position = position_path.clone();	
+			direction_position.add ( direction_rotation );
 			position_path = direction_position.clone();		
 			position_new  = position_path.clone();
 	
