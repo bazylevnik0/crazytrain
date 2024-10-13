@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 
-console.log(37)
+console.log(38)
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -46,7 +46,7 @@ function animate() {
 			renderer.xr.getCamera().getWorldDirection(direction_rotation);
 		for (let j = 0; j < 10; j++) {
 			let direction_position = position_path.clone();	
-			direction_position.add ( direction_rotation );
+			direction_position.add ( direction_rotation.multiplyScalar( 0.1 ) );
 			position_path = direction_position.clone();		
 			position_new  = position_path.clone();
 	
