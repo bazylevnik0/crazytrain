@@ -25,7 +25,7 @@ document.body.appendChild( renderer.domElement );
 
 let loader = new GLTFLoader();
 let model;
-loader.load( 'rail+.glb', (gltf)=> {
+loader.load( 'rail++.glb', (gltf)=> {
 	model = gltf.scene;
 	renderer.setAnimationLoop( animate );
 	document.body.appendChild( VRButton.createButton( renderer ) );
