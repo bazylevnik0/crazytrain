@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
-console.log(65)
+console.log(66)
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -34,8 +34,8 @@ loader.load( 'rail++.glb', (gltf)=> {
 function add_segment (position, rotation) {
 	const geometry = new THREE.BoxGeometry( 2, 1, 1 ); 
 	const material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
-	//const cube = new THREE.Mesh( geometry, material );
-	const cube = model.clone();
+	const cube = new THREE.Mesh( geometry, material );
+	//const cube = model.clone();
 		  cube.position.x = position.x;
 		  cube.position.y = position.y;
 		  cube.position.z = position.z;
