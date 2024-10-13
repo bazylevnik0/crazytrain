@@ -1,13 +1,13 @@
 import * as THREE from 'three';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 
-console.log(35)
+console.log(36)
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 	  camera.position.z = 0;
 let camera_group = new THREE.Group();
-	camera_group.position.set(0,0,0);
+	camera_group.position.set( 0, 0, 0);
 	camera_group.add( camera );
 	scene.add(camera_group);
 
@@ -23,10 +23,8 @@ function add_segment (position, rotation) {
 	const material = new THREE.MeshBasicMaterial( {color: 0x0000ff} );
 		  material.wireframe = true;
 	const edges = new THREE.EdgesGeometry( geometry ); 
-	const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial( { color: 0xffffff } ) ); 
-		  line.position.x = position.x;
-		  line.position.y = position.y;
-		  line.position.z = position.z;
+	const line  = new THREE.LineSegments( edges, new THREE.LineBasicMaterial( { color: 0xffffff } ) ); 
+		  line.position.set( position );
 		  line.geometry.lookAt( rotation);
 	scene.add( line );
 }
@@ -45,10 +43,8 @@ function animate() {
 		let direction_position = position_path.clone();	
 			direction_position.add ( direction_rotation );
 			position_path = direction_position.clone();		
-			position_new = position_path.clone();
-		
-		let direction_look = new THREE.Vector3();
-			direction_look.subVectors( position_old, position_new ).normalize();
+			position_new  = position_path.clone();
+	
 		add_segment(position_path, direction_rotation);
 		
 		length = position_old.distanceTo(position_new);
