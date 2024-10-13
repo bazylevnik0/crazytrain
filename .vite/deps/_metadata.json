@@ -2,48 +2,48 @@
   "hash": "383aa9b0",
   "configHash": "fed6a91e",
   "lockfileHash": "e3b0c442",
-  "browserHash": "221eb3bf",
+  "browserHash": "72adf548",
   "optimized": {
     "three": {
       "src": "../../../../node_modules/three/build/three.module.js",
       "file": "three.js",
-      "fileHash": "3d2669a5",
+      "fileHash": "b673f5e0",
       "needsInterop": false
     },
     "three/addons/lines/LineMaterial.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/LineMaterial.js",
       "file": "three_addons_lines_LineMaterial__js.js",
-      "fileHash": "ff0ee706",
+      "fileHash": "5ad5b8a5",
       "needsInterop": false
     },
     "three/addons/lines/LineGeometry.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/LineGeometry.js",
       "file": "three_addons_lines_LineGeometry__js.js",
-      "fileHash": "20ef31e5",
+      "fileHash": "5faf89cf",
       "needsInterop": false
     },
     "three/addons/lines/Line2.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/Line2.js",
       "file": "three_addons_lines_Line2__js.js",
-      "fileHash": "594c3071",
+      "fileHash": "670fa691",
       "needsInterop": false
     },
     "three/addons/lines/LineSegmentsGeometry.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/LineSegmentsGeometry.js",
       "file": "three_addons_lines_LineSegmentsGeometry__js.js",
-      "fileHash": "29f04af4",
+      "fileHash": "5faeb325",
       "needsInterop": false
     },
     "three/addons/lines/LineSegments2.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/LineSegments2.js",
       "file": "three_addons_lines_LineSegments2__js.js",
-      "fileHash": "b2582534",
+      "fileHash": "8c2bda5a",
       "needsInterop": false
     },
     "three/examples/jsm/lines/LineSegmentsGeometry.js": {
       "src": "../../../../node_modules/three/examples/jsm/lines/LineSegmentsGeometry.js",
       "file": "three_examples_jsm_lines_LineSegmentsGeometry__js.js",
-      "fileHash": "51304382",
+      "fileHash": "c2231d2f",
       "needsInterop": false
     },
     "three/addons/webxr/VRButton.js": {
@@ -51,20 +51,26 @@
       "file": "three_addons_webxr_VRButton__js.js",
       "fileHash": "2ae17028",
       "needsInterop": false
+    },
+    "three/addons/loaders/GLTFLoader.js": {
+      "src": "../../../../node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "file": "three_addons_loaders_GLTFLoader__js.js",
+      "fileHash": "036b325f",
+      "needsInterop": false
     }
   },
   "chunks": {
     "chunk-3WGNRCZA": {
       "file": "chunk-3WGNRCZA.js"
     },
-    "chunk-4TED273O": {
-      "file": "chunk-4TED273O.js"
-    },
-    "chunk-PPSDZFIN": {
-      "file": "chunk-PPSDZFIN.js"
+    "chunk-2QYLDCCV": {
+      "file": "chunk-2QYLDCCV.js"
     },
     "chunk-ENBEF2CT": {
       "file": "chunk-ENBEF2CT.js"
+    },
+    "chunk-PPSDZFIN": {
+      "file": "chunk-PPSDZFIN.js"
     },
     "chunk-XD4WBZ35": {
       "file": "chunk-XD4WBZ35.js"

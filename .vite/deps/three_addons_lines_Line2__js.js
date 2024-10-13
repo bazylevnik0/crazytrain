@@ -3,11 +3,11 @@ import {
 } from "./chunk-3WGNRCZA.js";
 import {
   LineSegments2
-} from "./chunk-4TED273O.js";
+} from "./chunk-2QYLDCCV.js";
+import "./chunk-ENBEF2CT.js";
 import {
   LineMaterial
 } from "./chunk-PPSDZFIN.js";
-import "./chunk-ENBEF2CT.js";
 import "./chunk-XD4WBZ35.js";
 
 // ../../node_modules/three/examples/jsm/lines/Line2.js

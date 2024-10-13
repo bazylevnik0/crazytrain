@@ -1,9 +1,9 @@
 import {
-  LineMaterial
-} from "./chunk-PPSDZFIN.js";
-import {
   LineSegmentsGeometry
 } from "./chunk-ENBEF2CT.js";
+import {
+  LineMaterial
+} from "./chunk-PPSDZFIN.js";
 import {
   Box3,
   InstancedInterleavedBuffer,
@@ -231,4 +231,4 @@ var LineSegments2 = class extends Mesh {
 export {
   LineSegments2
 };
-//# sourceMappingURL=chunk-4TED273O.js.map
+//# sourceMappingURL=chunk-2QYLDCCV.js.map
