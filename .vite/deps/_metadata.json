@@ -1,8 +1,31 @@
 {
-  "hash": "b5d1b5a4",
-  "configHash": "2873be82",
+  "hash": "383aa9b0",
+  "configHash": "fed6a91e",
   "lockfileHash": "e3b0c442",
-  "browserHash": "1755acdd",
-  "optimized": {},
-  "chunks": {}
+  "browserHash": "47a896e7",
+  "optimized": {
+    "three": {
+      "src": "../../../../node_modules/three/build/three.module.js",
+      "file": "three.js",
+      "fileHash": "6966939f",
+      "needsInterop": false
+    },
+    "three/addons/loaders/GLTFLoader.js": {
+      "src": "../../../../node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "file": "three_addons_loaders_GLTFLoader__js.js",
+      "fileHash": "9c5f1efd",
+      "needsInterop": false
+    },
+    "three/addons/webxr/VRButton.js": {
+      "src": "../../../../node_modules/three/examples/jsm/webxr/VRButton.js",
+      "file": "three_addons_webxr_VRButton__js.js",
+      "fileHash": "2ae17028",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-XD4WBZ35": {
+      "file": "chunk-XD4WBZ35.js"
+    }
+  }
 }
