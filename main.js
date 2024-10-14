@@ -81,8 +81,8 @@ function animate() {
 	let position_current = camera_group.position.clone();	
 		position_current.add( position_move.multiplyScalar( delta ) );
 		camera_group.position.x = position_current.x;		
-		camera_group.position.y = position_current.y+0.25;		
-		camera_group.position.z = position_current.z+1;		
+		camera_group.position.y = position_current.y;		
+		camera_group.position.z = position_current.z;		
 	//}	
 	renderer.render( scene, camera ); i++;
 }
