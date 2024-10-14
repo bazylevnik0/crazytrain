@@ -25,7 +25,7 @@ document.body.appendChild( renderer.domElement );
 
 let loader = new GLTFLoader();
 let model;
-loader.load( 'rail++.glb', (gltf)=> {
+loader.load( 'rail.glb', (gltf)=> {
 	model = gltf.scene;
 	renderer.setAnimationLoop( animate );
 	document.body.appendChild( VRButton.createButton( renderer ) );
@@ -34,15 +34,15 @@ loader.load( 'rail++.glb', (gltf)=> {
 function add_segment (position, rotation) {
 	const geometry = new THREE.BoxGeometry( 2, 1, 1 ); 
 	const material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
-	const cube = new THREE.Mesh( geometry, material );
-	//const cube = model.clone();
+	//const cube = new THREE.Mesh( geometry, material );
+	const cube = model.clone();
 		  cube.position.x = position.x;
 		  cube.position.y = position.y;
 		  cube.position.z = position.z;
 		  //cube.rotation.x = rotation.x;
 		  //cube.rotation.y = rotation.y;
 		  //cube.rotation.z = rotation.z;
-		  cube.geometry.lookAt( rotation);
+		  cube.lookAt( rotation);
 	scene.add( cube ); 
 }
 
