@@ -106,5 +106,5 @@ function animate() {
 		
 	renderer.render( scene, camera ); i++;
 	
-	if (segments.length > 100) scene.remove(segments.shift());
+	if (segments.length > 5000) scene.remove(segments.shift());
 }
