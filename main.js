@@ -1,8 +1,9 @@
 import * as THREE from 'three';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 
-console.log(82)
+console.log(83)
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -12,7 +13,7 @@ let camera_group = new THREE.Group();
 	camera_group.position.y = 0;
 	camera_group.position.z = 0;
 	camera_group.add( camera );
-	scene.add(camera_group);
+	scene.add( camera_group );
 	
 	const light = new THREE.AmbientLight( 0x404040 ); // soft white light
 		  light.intensity = 5; 	
@@ -25,12 +26,22 @@ document.body.appendChild( renderer.domElement );
 
 let loader = new GLTFLoader();
 let model;
-loader.load( 'rail.glb', (gltf)=> {
-	model = gltf.scene;
-	renderer.setAnimationLoop( animate );
-	document.body.appendChild( VRButton.createButton( renderer ) );
-})			
+new RGBELoader()
+	.load( 'back.hdr', function ( texture ) {
 
+		texture.mapping = THREE.EquirectangularReflectionMapping;
+
+		scene.background = texture;
+		scene.environment = texture;
+
+		loader.load( 'rail.glb', (gltf)=> {
+			model = gltf.scene;
+			renderer.setAnimationLoop( animate );
+			document.body.appendChild( VRButton.createButton( renderer ) );
+		})			
+	});
+
+let segments = [];
 function add_segment (position, rotation) {
 	const segment = model.clone();
 		  segment.position.x = position.x;
@@ -42,11 +53,12 @@ function add_segment (position, rotation) {
 		  segment.rotation.z = rotation.z;
 		  
 		  scene.add( segment ); 
+		  segments.push(segment);
 }
 
 let position_path = camera_group.position.clone(); 
 let position_new  = position_path.clone();
-let i = 0; let length = position_path.distanceTo(position_new); let delta = length/10;
+let i = 0; let length = position_path.distanceTo( position_new ); let delta = length/10;
 	
 let direction_rotation = new THREE.Vector3();
 let direction_position = new THREE.Vector3();
@@ -59,7 +71,7 @@ function animate() {
 			for ( let j = 0; j < 5; j++ ) {
 				if ( j == 4 ) {
 					direction_rotation = new THREE.Vector3();
-					renderer.xr.getCamera().getWorldDirection(direction_rotation);
+					renderer.xr.getCamera().getWorldDirection( direction_rotation );
 				} 
 				direction_position = position_path.clone();	
 				direction_position.add ( direction_rotation );
@@ -81,4 +93,6 @@ function animate() {
 			camera_group.position.z = position_current.z;		
 	}	
 	renderer.render( scene, camera ); i++;
+	
+	if (segments.length > 100) scene.remove(scene.shift());
 }
